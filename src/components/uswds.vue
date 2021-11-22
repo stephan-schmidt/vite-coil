@@ -200,6 +200,7 @@ line-height: 33px;">Solve problems for American workers, businesses, investors, 
 import axios from 'axios';
 // import { Swiper, SwiperSlide } from 'swiper/vue';
 // import 'swiper/css';
+        // import shaderString from './timeline.txt?raw'
 
 export default {
 
@@ -217,11 +218,16 @@ export default {
     created() {
         // this.fetchTeam();
         this.fetchTxt();
+
+        console.log(this.textfile);
       },
     methods: {
       fetchTxt(){
+
+
         self = this;
-axios.get('./src/assets/timeline.txt').then(data => {
+
+axios.get('https://raw.githubusercontent.com/stephan-schmidt/vite-coil/main/src/assets/timeline.txt').then(data => {
           // console.log(data.data);
           self.data = data.data;
           self.processData();
